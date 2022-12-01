@@ -1,0 +1,87 @@
+1 Abrade (cmr) 410 
+1 Academy Manufactor (mh2) 219
+1 Adaptive Automaton (m12) 201
+1 Ancient Tomb (tmp) 315
+1 Barbarian Ring (ody) 313
+1 Blood Moon (a25) 122
+1 Bloodfire Dwarf (apc) 56
+1 Bloodline Pretender (khm) 235
+1 Bogardan Hellkite (afc) 115
+1 Buried Ruin (2xm) 312
+1 Cavern of Souls (2x2) 320
+1 Chrome Mox (mrd) 152
+1 Clock of Omens (m13) 202
+1 Cursed Mirror (c21) 50
+1 Deflecting Swat (c20) 50
+1 Dockside Extortionist (c19) 24
+1 Dwarven Armorer (fem) 50
+1 Dwarven Blastminer (ons) 199
+1 Dwarven Bloodboiler (jud) 84
+1 Dwarven Grunt (ody) 185
+1 Dwarven Miner (mir) 169
+1 Dwarven Scorcher (jud) 86
+1 Dwarven Trader (hml) 72b
+1 Elixir of Immortality (m12) 208
+1 Enslaved Dwarf (tor) 96
+1 Fork (3ed) 153
+1 Fury Charm (mma) 114
+1 Gadrak, the Crown-Scourge (pm21) 146p
+1 Galvanic Blast (mb1) 943
+1 Gemstone Caverns (tsr) 280
+1 Goblin Welder (ddu) 35 {F}
+1 God-Pharaoh's Statue (war) 238
+1 Great Furnace (c14) 299
+1 Grinding Station (5dn) 127
+1 High-Speed Hoverbike (neo) 247
+1 Holdout Settlement (ogw) 172
+1 Homeward Path (cmd) 277
+1 Jeska's Will (clb) 799
+1 Jeweled Lotus (cmr) 319
+1 Karn, the Great Creator (war) 1
+1 Liberated Dwarf (jud) 95
+1 Lightning Bolt (clb) 401
+1 Liquimetal Coating (c14) 246
+1 Liquimetal Torque (mh2) 228
+1 Lotus Petal (mb1) 1601
+1 Magda, Brazen Outlaw (khm) 312
+1 Mana Crypt (ema) 225
+1 Maskwood Nexus (clb) 865
+1 Mechtitan Core (neo) 249
+1 Memory Jar (ulg) 129
+1 Metallic Mimic (aer) 164
+1 Mirror of the Forebears (c17) 54
+14 Mountain (clb) 465
+1 Mox Amber (dom) 224
+1 Mox Diamond (sth) 138
+1 Mutavault (clb) 903
+1 Proteus Machine (scg) 141
+1 Pyroblast (5ed) 262
+1 Raze the Effigy (mid) 156
+1 Reckoner Bankbuster (neo) 255
+1 Red Elemental Blast (4ed) 218
+1 Sculpting Steel (c21) 261
+1 Shatterskull Smashing // Shatterskull, the Hammer Pass (znr) 161
+1 Shinka, the Bloodsoaked Keep (plist) 651
+1 Simian Spirit Guide (tsr) 190
+1 Smuggler's Copter (kld) 235
+1 Sol Ring (clb) 871
+1 Soul-Guide Lantern (thb) 237
+1 Spark Mage (ody) 222
+1 Sphere of Resistance (exo) 139
+1 Springleaf Drum (bng) 162
+1 Sticky Fingers (snc) 124
+1 Stoke the Flames (m15) 164
+1 Survivors' Encampment (hou) 184
+1 Tangle Wire (v13) 8 {F}
+1 Thorn of Amethyst (lrw) 262
+1 Tibalt's Trickery (pkhm) 153p
+1 Treasure Vault (afr) 358
+1 Trinisphere (2xm) 303
+1 Universal Automaton (mh1) 235
+1 Unlicensed Hearse (psnc) 246p
+1 Urza's Saga (mh2) 380
+1 Utvara Hellkite (rtr) 110
+1 Wild Magic Surge (clb) 206
+1 Winter Orb (ema) 234
+1 Xorn (afr) 322
+1 You Find Some Prisoners (afr) 169
