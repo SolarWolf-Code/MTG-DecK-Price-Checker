@@ -79,6 +79,10 @@ def main(deck_filename):
             else:
                 raise Exception("Card type not found")
 
+            if card_price == None:
+                print("Card price not found, you may need to update your decklist")
+                card_price = 0
+
             total_price += float(card_price) * int(card_count)
 
         db.close()
