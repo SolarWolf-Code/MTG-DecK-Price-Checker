@@ -2,7 +2,7 @@
 
 ## Script Setup
 To use, setup a cronjob on your server to start ping_bulk_data.py
-This will provide you with the most up-to-date bulk data provided by Scryfall API [Scryfall API](https://scryfall.com/docs/api/bulk-data).
+This will provide you with the most up-to-date bulk data provided by [Scryfall API](https://scryfall.com/docs/api/bulk-data).
 
 Next, anytime you wish to check a deck/collections run this command:
 ```
