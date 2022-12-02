@@ -35,7 +35,7 @@ def main(deck_filename):
         days -= 1
         if db_found == True:
             break
-        if days == 0:
+        if days == -1:
             print("No db found for that many days back!")
             sys.exit()
 
