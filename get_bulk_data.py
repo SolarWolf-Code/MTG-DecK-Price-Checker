@@ -5,12 +5,15 @@ import os
 import requests
 
 def get_bulk_data(download_url, timestamp):
+    # get script location
+    script_location = os.path.dirname(os.path.realpath(__file__))
+
     # create a tmp dir
-    tmp_dir = './tmp'
+    tmp_dir = f'.{script_location}/tmp'
     if not os.path.exists(tmp_dir):
         os.makedirs(tmp_dir)
 
-    dst = f'./tmp/all-cards-{timestamp}.json'
+    dst = f'.{script_location}/tmp/all-cards-{timestamp}.json'
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36'}
     r = requests.get(download_url, stream=True, headers=headers)
     if r.status_code == 200:
@@ -18,9 +21,9 @@ def get_bulk_data(download_url, timestamp):
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
 
-    with open(f'./tmp/all-cards-{timestamp}.json', 'r') as f:
+    with open(f'.{script_location}/tmp/all-cards-{timestamp}.json', 'r') as f:
         objects = ijson.items(f, 'item')
-        db = sqlite3.connect(f'./card_db/all-cards-{timestamp}.db')
+        db = sqlite3.connect(f'.{script_location}/card_db/all-cards-{timestamp}.db')
         cursor = db.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS cards (name text, lang text, set_code text, collector_number text, usd real, usd_foil real, usd_etched real)''')
         for obj in objects:
