@@ -11,7 +11,7 @@ python3 path/to/check_deck_price.py path/to/deck.txt
 You will be asked how many days you would like to look back and you will be returned a percent difference between the most up-to-date data and that requested date.
 ##### NOTE: If the requested data is not present for whatever reason, it will look for the next closest day
 
-Each new database should be around 15.5mb of data and you will be required to download a 1.5gb json file (this is a temporary file). If your server has low storage, consider upping the total time that you should wait.
+Each new database should be around 15.5mb of data. If your server has low stoarge, consider upping the total time that you should wait.
 
 ##### You can freely search any amount of cards
 
