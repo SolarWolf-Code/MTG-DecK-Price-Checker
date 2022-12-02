@@ -13,7 +13,7 @@ if __name__ == "__main__":
         
         script_location = os.path.dirname(os.path.realpath(__file__))
         
-        if os.path.exists(f".{script_location}/card_db/all-cards-{timestamp}.db"):
+        if os.path.exists(f"{script_location}/card_db/all-cards-{timestamp}.db"):
             print("File already exists")
             # wait 10 minutes
             time.sleep(600)

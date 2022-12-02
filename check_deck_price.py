@@ -5,6 +5,7 @@ import time
 import os
 
 def main(deck_filename):
+    script_location = os.path.dirname(os.path.realpath(__file__))
     # open the deck file
     with open(deck_filename, "r") as deck_file:
         deck = deck_file.read().splitlines()
@@ -15,7 +16,7 @@ def main(deck_filename):
     requested_days = days
 
     # we want to search for the db that is closest to the requested days
-    files = os.listdir("./card_db")
+    files = os.listdir(f"{script_location}/card_db")
     db_found = False
     while db_found == False:
         date = time.strftime("%Y%m%d", time.localtime(time.time() - (days * 86400)))
@@ -40,7 +41,7 @@ def main(deck_filename):
 
     def get_price(requested_db):
         total_price = 0
-        db = sqlite3.connect(f"./card_db/{requested_db}")
+        db = sqlite3.connect(f"{script_location}/card_db/{requested_db}")
         for card in deck:
             card_count = card.split(" ")[0]
             card_name = " ".join(card.split(" ")[1:-1]).split(" (")[0]
