@@ -6,6 +6,7 @@ import os
 
 def main(deck_filename):
     script_location = os.path.dirname(os.path.realpath(__file__))
+
     # open the deck file
     with open(deck_filename, "r") as deck_file:
         deck = deck_file.read().splitlines()
@@ -19,7 +20,7 @@ def main(deck_filename):
     files = os.listdir(f"{script_location}/card_db")
     db_found = False
     while db_found == False:
-        date = time.strftime("%Y%m%d", time.localtime(time.time() - (days * 86400)))
+        date = time.strftime("%Y%m%d", time.localtime(time.time() - (days * 86400)))     
         for file in files:
             if date in file:
                 db_found = True
@@ -103,13 +104,15 @@ def main(deck_filename):
     elif past_price < current_price:
         # calculate percentage increase
         percent_increase = (current_price - past_price) / past_price * 100
-        print(f"Current price: ${current_price:.2f}.Price increased by {percent_increase:.2f}%")
+        flat_price_diff = current_price - past_price
+        print(f"Current price: ${current_price:.2f} | Past price: ${past_price:.2f}. Price increased by {percent_increase:.2f}% or ${flat_price_diff:.2f}")
     elif past_price > current_price:
         # calculate percentage decrease
         percent_decrease = (current_price - past_price) / current_price * 100
-        print(f"Current price: ${current_price:.2f}. Price decreased by {percent_decrease:.2f}%")
+        flat_price_diff = current_price - past_price
+        print(f"Current price: ${current_price:.2f} | Past price: ${past_price:.2f}. Price decreased by {percent_decrease:.2f}% or ${flat_price_diff:.2f}")
     else:
-        print(f"Current price: ${current_price:.2f}. Price has not changed")
+        print(f"Current price: ${current_price:.2f} | Past price: ${past_price:.2f}. Price has not changed")
 
 
 if __name__ == "__main__":
