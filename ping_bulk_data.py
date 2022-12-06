@@ -3,12 +3,16 @@ import os
 from get_bulk_data import get_bulk_data
 import time
 import sys
-
+import shutil
 
 if __name__ == "__main__":
     while True:
+        script_location = os.path.dirname(os.path.realpath(__file__))
+        # check if tmp dir exists
+        tmp_dir = f'{script_location}/tmp'
+        if os.path.exists(tmp_dir):
+            shutil.rmtree(tmp_dir)
         try:
-            script_location = os.path.dirname(os.path.realpath(__file__))
             # create logs dir
             logs_dir = f'{script_location}/logs'
             if not os.path.exists(logs_dir):
