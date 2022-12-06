@@ -6,15 +6,15 @@ import sys
 
 
 if __name__ == "__main__":
-    try:
-        script_location = os.path.dirname(os.path.realpath(__file__))
-        # create logs dir
-        logs_dir = f'{script_location}/logs'
-        if not os.path.exists(logs_dir):
-            os.makedirs(logs_dir)
+    while True:
+        try:
+            script_location = os.path.dirname(os.path.realpath(__file__))
+            # create logs dir
+            logs_dir = f'{script_location}/logs'
+            if not os.path.exists(logs_dir):
+                os.makedirs(logs_dir)
 
-        try_count = 0
-        while True:
+            try_count = 0
             bulk_data_links = requests.get("https://api.scryfall.com/bulk-data")
             if bulk_data_links.status_code == 200:
                 try_count = 0
@@ -35,6 +35,10 @@ if __name__ == "__main__":
                         add_log.write(f"\n+ [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - Attempting to create a new db save")
                     get_bulk_data(all_cards_download_link, timestamp)
             else:
+                if str(bulk_data_links.status_code).startswith("5"):
+                    print("test")
+                print("Status code:", bulk_data_links.status_code)
+
                 print("Error: Status code is not 200, waiting 5 seconds before trying again...")
                 time.sleep(5)
                 if try_count != 10: # This will indicate the requests has failed 10 times in a row
@@ -45,9 +49,18 @@ if __name__ == "__main__":
                         error_log.write(f"\n! [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - Status code: {bulk_data_links.status_code}")
                         # exit the program
                         sys.exit()
-    except:
-        with open(f"{script_location}/logs/log.txt", "a") as error_log:
-            # write that the timestamp and the error
-            error_log.write(f"\n! [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - {sys.exc_info()[0]}")
-        # exit the program
-        sys.exit()
+        except:
+            # check if error was related to connection error
+            if "ConnectionError" in str(sys.exc_info()[0]):
+                print("Connection error, waiting 5 seconds before trying again...")
+                time.sleep(5)
+                # try again
+                with open(f"{script_location}/logs/log.txt", "a") as error_log:
+                    # write that the timestamp and the error
+                    error_log.write(f"\n! [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - {sys.exc_info()[0]}")
+            else:
+                with open(f"{script_location}/logs/log.txt", "a") as error_log:
+                    # write that the timestamp and the error
+                    error_log.write(f"\n! [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - {sys.exc_info()[0]}")
+                # exit the program
+                sys.exit()
