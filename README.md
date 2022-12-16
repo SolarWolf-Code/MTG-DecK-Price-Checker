@@ -6,7 +6,7 @@ Requirements
 pip3 install ijson
 ```
 
-To use, setup a cronjob on your server to start ping_bulk_data.py
+To use, setup a cronjob on your server to start ping_bulk_data.py on boot (check_deck_price.py will do the rest)
 This will provide you with the most up-to-date bulk data provided by [Scryfall API](https://scryfall.com/docs/api/bulk-data).
 
 Next, anytime you wish to check a deck/collections run this command:
