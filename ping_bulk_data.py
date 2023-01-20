@@ -6,11 +6,10 @@ import sys
 import shutil
 
 if __name__ == "__main__":
-    script_location = os.path.dirname(os.path.realpath(__file__))
-    try_count = 0
-    tmp_dir = f'{script_location}/tmp'
     while True:
+        script_location = os.path.dirname(os.path.realpath(__file__))
         # check if tmp dir exists
+        tmp_dir = f'{script_location}/tmp'
         if os.path.exists(tmp_dir):
             shutil.rmtree(tmp_dir)
         try:
@@ -19,6 +18,7 @@ if __name__ == "__main__":
             if not os.path.exists(logs_dir):
                 os.makedirs(logs_dir)
 
+            try_count = 0
             bulk_data_links = requests.get("https://api.scryfall.com/bulk-data")
             if bulk_data_links.status_code == 200:
                 try_count = 0
@@ -26,8 +26,7 @@ if __name__ == "__main__":
                 all_cards_download_link = bulk_data_links["data"][3]["download_uri"]
                 timestamp = str(all_cards_download_link).split("-")[-1].split(".")[0]
                 
-                
-                if os.path.exists(f"{script_location}/card_db/all-cards-{timestamp}.db"):
+                if os.path.exists(f"{script_location}/gob_db/all-cards-{timestamp}.gob"):
                     print("File already exists")
                     with open(f"{script_location}/logs/log.txt", "a") as add_log:
                         add_log.write(f"\n+ [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - File already exists, waiting 10 minutes before trying again")
@@ -39,6 +38,10 @@ if __name__ == "__main__":
                         add_log.write(f"\n+ [{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}] - Attempting to create a new db save")
                     get_bulk_data(all_cards_download_link, timestamp)
             else:
+                if str(bulk_data_links.status_code).startswith("5"):
+                    print("test")
+                print("Status code:", bulk_data_links.status_code)
+
                 print("Error: Status code is not 200, waiting 5 seconds before trying again...")
                 time.sleep(5)
                 if try_count != 10: # This will indicate the requests has failed 10 times in a row
