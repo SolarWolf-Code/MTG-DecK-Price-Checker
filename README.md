@@ -1,19 +1,20 @@
 # MTG-Deck-Price-Checker
 
 ## Script Setup
-Requirements 
-```
-pip3 install ijson
-```
+To use, setup a cronjob on your server to start ping_bulk_data.py on boot
 
-To use, setup a cronjob on your server to start ping_bulk_data.py
 This will provide you with the most up-to-date bulk data provided by [Scryfall API](https://scryfall.com/docs/api/bulk-data).
 
-Next, anytime you wish to check a deck/collections run this command:
+Anytime you wish to check a deck/collection's run this command:
 ```
-python3 path/to/check_deck_price.py path/to/deck.txt
+./card_price path/to/deck.txt path/to/gobdb.gob
 ```
-You will be asked how many days you would like to look back and you will be returned a percent difference between the most up-to-date data and that requested date.
+##### Example input:
+```
+./card_price /home/username/Desktop/MTG/decks/example_deck.txt /home/username/Desktop/MTG/gob_db/all-cards-20230119222034.gob
+```
+
+~~You will be asked how many days you would like to look back and you will be returned a percent difference between the most up-to-date data and that requested date.~~ Currently working on this. We converted the price checking script from Python to Go for better performance.
 ##### NOTE: If the requested data is not present for whatever reason, it will look for the next closest day
 
 Each new database should be around 15.5mb of data and you will be required to download a 1.5gb json file (this is a temporary file). If your server has low storage, consider upping the total time that you should wait.
@@ -53,7 +54,7 @@ Most decks will be fine just like this but for decks with foil/foil-etched cards
 ```
 1 Example Foil-Etched Card (exa) 999 {E}
 ```
-### Card Lanuage
+### Card Language
 #### Note: Some cards may not have price data for a language requested. If this become a problem, open a issue and I can look into it.
 #### Adding Languages to cards by adding a {LANG} to the end of the line:
 ##### All languages so far are 2-3 characters. See below for supported languages
@@ -62,7 +63,7 @@ Most decks will be fine just like this but for decks with foil/foil-etched cards
 ```
 ##### Example above is French
 
-#### Example of Foil+Foreign Card:
+#### Example of Foil + Foreign Card:
 ```
 1 Example Foreign Card (exa) 999 {F}{FR}
 ```
@@ -81,7 +82,7 @@ ko - Korean
 it - Italian
 zhs - Mandarin Chinese (Simplified)
 zht - Mandarin Chinese (Traditional)
-ph - Taglog ?
+ph - Tagalog ?
 sa - Sanskrit ?
 he - Hebrew
 ar - Arabic
